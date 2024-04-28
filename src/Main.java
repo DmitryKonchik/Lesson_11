@@ -4,6 +4,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+
+        HardTask.isPalindromWord("111 ttt yyyy rrr", 0);
+
+
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите 3 строки");
@@ -13,20 +18,16 @@ public class Main {
             inputStrings[i] = scanner.nextLine();
         }
 
-        // 1 задание, находим самую короткую и самую длинную строку и выводим
-//        firstTask(inputStrings);
-        // 2 задание, сортируем массив строк в пордке возрастания и выводим его
-//        secondTask(inputStrings);
-        // 3 задание, выводим строки мешьше среденей и их длинну (среденей по начальной позиции в массиве)
-//        thirdTask(inputStrings);
-        // 4 задание, выводим первую строку у которой все символы разные
-
-//        fourthTask(inputStrings);
-
-// 5 задание, принимаем строку и выводим строку с дублированием всех символов
+//         1 задание, находим самую короткую и самую длинную строку и выводим
+        firstTask(inputStrings);
+//         2 задание, сортируем массив строк в пордке возрастания и выводим его
+        secondTask(inputStrings);
+//         3 задание, выводим строки мешьше среденей и их длинну (среденей по начальной позиции в массиве)
+        thirdTask(inputStrings);
+//         4 задание, выводим первую строку у которой все символы разные
+        fourthTask(inputStrings);
+//         5 задание, принимаем строку и выводим строку с дублированием всех символов
         System.out.println(doubleChar(inputStrings[0]));
-
-
     }
 
     static int findLongestStr(String[] strings) {
@@ -75,19 +76,19 @@ public class Main {
 //        int midleLength = strings[3 - findLongestStr(strings) - findShortestStr(strings)].length();
         int midleLength = strings[1].length();
         System.out.println("Выводим строки которые меньше средней");
-        for (String str: strings) {
+        for (String str : strings) {
             if (str.length() < midleLength) {
                 System.out.println(str + " её длинна " + str.length());
             }
         }
     }
 
-    static String fourthTask (String[] strings) {
+    static String fourthTask(String[] strings) {
         for (int i = 0; i < strings.length; i++) {
             boolean isDiferentsChar = true;
             char[] stringChars = strings[i].toCharArray();
             for (int j = 0; j < stringChars.length; j++) {
-                for (int k = j+1; k < stringChars.length; k++) {
+                for (int k = j + 1; k < stringChars.length; k++) {
                     if (stringChars[j] == stringChars[k]) {
                         isDiferentsChar = false;
                         break;
@@ -105,7 +106,7 @@ public class Main {
 
     static String doubleChar(String str) {
         StringBuilder sb = new StringBuilder(str);
-        for (int i = 0; i < sb.length(); i+=2) {
+        for (int i = 0; i < sb.length(); i += 2) {
             sb.insert(i, sb.charAt(i));
         }
         return sb.toString();
